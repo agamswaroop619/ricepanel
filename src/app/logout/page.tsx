@@ -11,10 +11,10 @@ export default function Home() {
             <span className="font-semibold">Amazon Business</span>
           </p>
           <div className="mt-4">
-            <button className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition ease-in duration-150 mb-2 w-full">
+            <button className="hover:bg-red-500 text-white py-2 px-4 rounded bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition ease-in duration-150 mb-2 w-full">
               Delete Integration
             </button>
-            <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition ease-in duration-150 w-full">
+            <button className="hover:bg-blue-500 text-white py-2 px-4 rounded bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition ease-in duration-150 w-full">
               Reply To Messages
             </button>
           </div>
