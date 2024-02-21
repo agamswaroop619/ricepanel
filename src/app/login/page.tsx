@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="bg-blue-800 flex items-center justify-center h-screen">
       <div className="bg-white rounded-lg p-8 max-w-sm mx-auto">
-        <h1 className="text-2xl font-semibold mb-6 text-black">
+        <h1 className="text-2xl font-semibold mb-6 text-black text-center">
           Login to your account
         </h1>
         <form>
@@ -44,7 +44,7 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="hover:bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-screen"
               type="button"
             >
               Login
@@ -53,7 +53,7 @@ export default function Home() {
         </form>
         <p className="text-center text-sm text-gray-600 mt-4">
           New to MyApp?{" "}
-          <a href="#" className="text-blue-500 hover:text-blue-800">
+          <a href="/register" className="text-blue-500 hover:text-blue-800">
             Sign Up
           </a>
         </p>
