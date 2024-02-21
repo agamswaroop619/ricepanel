@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="bg-blue-800 flex items-center justify-center h-screen">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h1 className="text-2xl font-semibold mb-6 text-black">
+        <h1 className="text-2xl font-semibold mb-6 text-black text-center">
           Create Account
         </h1>
         <form>
@@ -61,7 +61,7 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-screen"
               type="button"
             >
               Sign Up
