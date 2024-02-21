@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Logout",
-  description: "Delete Account/ Delete Integration",
+  title: "Login",
+  description: "Connect to Existing Account",
 };
 
 export default function RootLayout({
