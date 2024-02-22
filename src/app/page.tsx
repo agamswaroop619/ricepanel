@@ -1,6 +1,19 @@
-import Image from "next/image";
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+  const currentUser = null; // This should be your actual logic to determine if a user is logged in
+
+  useEffect(() => {
+    if (!currentUser) {
+      router.push("/register");
+    } else {
+      router.push("/dashboard");
+    }
+  }, [currentUser, router]);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       Prototype

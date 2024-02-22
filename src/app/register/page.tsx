@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ export default function Home() {
     email: "",
     password: "",
   });
+  const router = useRouter();
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -27,6 +29,7 @@ export default function Home() {
         body: JSON.stringify(formData),
       });
       console.log(response);
+      router.push("/fbconnect");
     } catch (error: any) {
       // Handle error (e.g., show an error message)
       console.error("Error during registration:", error.message);
