@@ -1,11 +1,31 @@
+"use client";
+import { useState } from "react";
+import axios from "axios";
+
 export default function Home() {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+
+  const handleChange = (e: any) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/login", formData);
+      // Handle successful login (e.g., redirect to dashboard)
+    } catch (error) {
+      // Handle error (e.g., show an error message)
+    }
+  };
+
   return (
     <main className="bg-blue-800 flex items-center justify-center h-screen">
       <div className="bg-white rounded-lg p-8 max-w-sm mx-auto">
         <h1 className="text-2xl font-semibold mb-6 text-black text-center">
           Login to your account
         </h1>
-        <form>
+        <form onSubmit={handleSubmit} className="overflow-hidden">
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -40,14 +60,12 @@ export default function Home() {
               <span className="text-sm">Remember Me</span>
             </label>
           </div>
-          <div className="flex items-center justify-between">
-            <button
-              className="hover:bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-screen"
-              type="button"
-            >
-              Login
-            </button>
-          </div>
+          <button
+            className="hover:bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-100% px-12"
+            type="submit"
+          >
+            Login
+          </button>
         </form>
         <p className="text-center text-sm text-gray-600 mt-4">
           New to MyApp?{" "}

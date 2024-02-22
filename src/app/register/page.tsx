@@ -1,11 +1,47 @@
+"use client";
+import { useState } from "react";
+import axios from "axios";
+import { json } from "stream/consumers";
+
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: any) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log(formData);
+
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+
+        body: JSON.stringify(formData),
+      });
+      console.log(response);
+    } catch (error: any) {
+      // Handle error (e.g., show an error message)
+      console.error("Error during registration:", error.message);
+    }
+  };
+
   return (
     <main className="bg-blue-800 flex items-center justify-center h-screen">
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
         <h1 className="text-2xl font-semibold mb-6 text-black text-center">
           Create Account
         </h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -18,6 +54,8 @@ export default function Home() {
               id="name"
               type="text"
               placeholder="Manoj Kumar"
+              value={formData.name}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-4">
@@ -32,6 +70,8 @@ export default function Home() {
               id="email"
               type="email"
               placeholder="manoj@richpanel.com"
+              value={formData.email}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-6">
@@ -46,6 +86,8 @@ export default function Home() {
               id="password"
               type="password"
               placeholder="**********"
+              value={formData.password}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-6">
@@ -59,8 +101,8 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="hover:bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-screen"
-              type="button"
+              className="hover:bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+              type="submit" // Change button type to "submit"
             >
               Sign Up
             </button>
