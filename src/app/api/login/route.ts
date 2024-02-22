@@ -8,12 +8,12 @@ export const POST = async (request: Request, response: NextApiResponse) => {
       const result = await sql`SELECT * FROM Users WHERE Email = ${email} AND Password = ${password};`;
       if (result.rowCount >  0) { // Access the 'rows' property of the result
         console.log("sucess");
-        response.json({ message: 'User login successfully' })
+        return response.status(200).json({ message: 'User login successfully' });
     } else {
-        response.json({ message: 'Invalid credentials' });
+        return response.status(200).json({ message: 'User login failed' });
       }
     } catch (error: any) { // Narrow down the type to 'any'
-      response.json({ error: error.message });
+        return response.status(200).json({ error: error.message});
     }
   }
   
