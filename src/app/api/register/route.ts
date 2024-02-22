@@ -10,7 +10,5 @@ export const POST = async (request: Request, response: NextApiResponse) => {
     } catch (error: any) {
         response.json({ error: error.message });
     }
-    
     return new Response()
-    
 };

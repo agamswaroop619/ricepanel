@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import axios from "axios";
 
 export default function Home() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -11,11 +10,20 @@ export default function Home() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    console.log(formData);
     try {
-      const response = await axios.post("/api/login", formData);
-      // Handle successful login (e.g., redirect to dashboard)
-    } catch (error) {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log(response);
+    } catch (error: any) {
       // Handle error (e.g., show an error message)
+      console.error("Error during login:", error.message);
     }
   };
 
@@ -38,6 +46,8 @@ export default function Home() {
               id="email"
               placeholder="manoj@richpanel.com"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              value={formData.email}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-6">
@@ -52,6 +62,8 @@ export default function Home() {
               id="password"
               placeholder="............"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              value={formData.password}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-6">
@@ -61,7 +73,7 @@ export default function Home() {
             </label>
           </div>
           <button
-            className="hover:bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-100% px-12"
+            className="hover:bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
             type="submit"
           >
             Login

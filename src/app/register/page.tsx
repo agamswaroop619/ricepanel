@@ -1,7 +1,5 @@
 "use client";
 import { useState } from "react";
-import axios from "axios";
-import { json } from "stream/consumers";
 
 export default function Home() {
   const [formData, setFormData] = useState({
