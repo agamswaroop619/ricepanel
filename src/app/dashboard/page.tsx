@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="flex h-screen bg-gray-100 text-">
+    <div className="flex h-screen bg-gray-100 text-black">
       <div className="flex flex-col w-1/4 bg-white border-r">
         <div className="flex items-center justify-center p-4 shadow">
           <span className="font-bold">Conversations</span>
